@@ -1,0 +1,36 @@
+
+
+
+type Mutation {
+    addBranch(
+        branch_name: String!,
+        address: String!
+    ): BranchResponse!
+
+    changeBranch(
+        branch_id: String!
+        branch_name: String
+        address: String
+    ): BranchResponse!
+
+    deleteBranch(
+        branch_id: String!
+    ): BranchResponse!
+}
+
+type BranchResponse {
+    status: Int!
+    message: String!
+    data: Branch
+}
+
+
+type Branch{
+    branch_id: ID!,
+    branch_name: String!,
+    address: String!,
+    branch_created_at: String!,
+}
+
+
+

@@ -1,0 +1,22 @@
+
+type Query {
+    getBrands: [Brand!]!
+}
+
+type Mutation {
+    addBrand(
+        brand_name: String!
+    ): BrandResponse!
+}
+
+
+type BrandResponse {
+    status: Int!
+    message: String!
+    data: Brand
+}
+
+type Brand {
+    brand_id: String!
+    brand_name: String!
+}

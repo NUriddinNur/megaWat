@@ -1,0 +1,23 @@
+type Mutation {
+    register(
+        staff_name: String!
+        password: String!
+        confirm_pass: String!
+        birth_date: String!
+        gender: String!
+    ): AuthResponse!
+
+    login(
+        staff_name: String!
+        password: String!
+    ): AuthResponse!
+}
+
+
+type AuthResponse {
+    status: Int!
+    message: String!
+    data: Staff
+    token: String
+}
+

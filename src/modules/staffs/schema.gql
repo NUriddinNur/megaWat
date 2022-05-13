@@ -1,0 +1,18 @@
+
+
+type Query {
+    staffs: [Staff!]!
+}
+
+type Staff{
+    staff_id: ID!,
+    staff_name: String!,
+    birth_date: String!,
+    gender: String!,
+    branches: [String],
+}
+
+
+type Branches {
+    branches: String
+}

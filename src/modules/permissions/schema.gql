@@ -1,0 +1,49 @@
+type Query {
+    permissions: [Permission!]!
+    permissionsModules: [PermissionModules!]!
+}
+
+
+type Mutation {
+    addPermission(
+        staff_id: String!
+        branch_id: String!
+        permission_modules_id: String!
+        permission_id: String!
+    ): PermissionsResponse!
+
+    deletePermission(
+        staff_id: String!
+        branch_id: String!
+        permission_modules_id: String!
+        permission_id: String!
+    ): PermissionsResponse!
+}
+
+
+type PermissionsResponse {
+    status: Int!
+    message: String!
+    data: PermissionData
+}
+
+type PermissionData {
+    staff_permissions_id: String
+    staff_name: String
+    branch_name: String
+    permission_modules_name: String
+    permission_name: String
+}
+
+type Permission {
+    permission_id: String!
+    permission_name: String!
+}
+
+type PermissionModules {
+    permission_modules_id: String!
+    permission_modules_name: String!
+}
+
+
+
