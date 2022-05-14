@@ -5,7 +5,7 @@ import authModule from './auth/index.js'
 import brandModule from './brand/index.js'
 import PermissionsModule from './permissions/index.js'
 import BranchModule from './branch/index.js'
-// import CarModule from './car/index.js'
+import CarModule from './cars/index.js'
 
 
 export default makeExecutableSchema({
@@ -15,7 +15,7 @@ export default makeExecutableSchema({
         authModule.typeDefs,
         brandModule.typeDefs,
         BranchModule.typeDefs,
-        // CarModule.typeDefs
+        CarModule.typeDefs
     ],
 
     resolvers: [
@@ -24,6 +24,6 @@ export default makeExecutableSchema({
         authModule.resolvers,
         brandModule.resolvers,
         BranchModule.resolvers,
-        // CarModule.resolvers
+        CarModule.resolvers
     ]
 })

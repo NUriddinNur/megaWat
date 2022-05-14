@@ -1,5 +1,6 @@
 import checkToken from '../../utils/checkToken.js'
 import model from './model.js'
+import { UserInputError } from 'apollo-server-express'
 
 
 export default {
@@ -37,7 +38,7 @@ export default {
                 (args.branch_name && !args.branch_name.trim()) ||
                 (args.address && !args.address.trim())
             ) {
-                throw new UserInputError("The username or contact cannot be empty!")
+                throw new UserInputError("The branch name or address cannot be empty!")
             }
 
             if(!permission) {

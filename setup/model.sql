@@ -75,6 +75,7 @@ create table cars(
     car_model character varying(32) not null,
     car_color character varying(32) not null,
     car_img character varying(64) not null,
+    price decimal(10, 2) not null,
     car_added_at timestamptz default current_timestamp,
     brand_id uuid references brandes(brand_id) not null, 
     branch_id uuid references branches(branch_id) not null

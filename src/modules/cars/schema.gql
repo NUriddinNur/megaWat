@@ -1,36 +1,87 @@
+scalar Upload
+
+
+type Query {
+    getCars: [Car!]!
+}
 
 
 
 type Mutation {
-    addBranch(
-        branch_name: String!,
-        address: String!
-    ): BranchResponse!
-
-    changeBranch(
+    addCar(
+        brand_id: String!
         branch_id: String!
-        branch_name: String
-        address: String
-    ): BranchResponse!
+        model: String!
+        color: String!
+        price: Int!
+        file: Upload!
+    ): CarResponse!
 
-    deleteBranch(
-        branch_id: String!
-    ): BranchResponse!
+    changeCar(
+        car_id: String!
+        model: String
+        color: String
+        price: Int
+    ): CarResponse!
+
+    deleteCar(
+        car_id: String!
+    ): CarResponse!
 }
 
-type BranchResponse {
+
+
+
+type Car {
+    car_id: String!
+    car_model: String!
+    car_color: String!
+    car_img: String!
+    price: Int!
+    car_added_at: String!
+    brand: String!
+    branch: String!
+}
+
+
+type CarResponse {
     status: Int!
     message: String!
-    data: Branch
+    data: Car
 }
 
 
-type Branch{
-    branch_id: ID!,
-    branch_name: String!,
-    address: String!,
-    branch_created_at: String!,
-}
+
+# type Mutation {
+#     addBranch(
+#         branch_name: String!,
+#         address: String!
+#     ): BranchResponse!
+
+#     changeBranch(
+#         branch_id: String!
+#         branch_name: String
+#         address: String
+#     ): BranchResponse!
+
+#     deleteBranch(
+#         branch_id: String!
+#     ): BranchResponse!
+# }
+
+# type BranchResponse {
+#     status: Int!
+#     message: String!
+#     data: Branch
+# }
+
+
+# type Branch{
+#     branch_id: ID!,
+#     branch_name: String!,
+#     address: String!,
+#     branch_created_at: String!,
+# }
 
 
 

@@ -262,3 +262,41 @@ update branches b set
 where branch_id = $1
     returning *
 
+-- gett cars 
+
+select 
+    c.car_id,
+    c.car_model as model,
+    c.car_color as color,
+    c.car_img as img_url, 
+    b.brand_name as brand,
+    br.branch_name as branch
+from 
+    cars as c
+natural join 
+    brandes as b
+natural join branches as br
+;
+
+
+-- reponse new car
+
+select 
+    *
+from (
+insert into cars(
+    car_model, 
+    car_color, 
+    car_img,
+    brand_id,
+    branch_id
+) values (
+    'vesta1', 
+    'asdf', 
+    'asd.img',
+    'ff3c3347-9187-4f05-8539-97927a112f1a', 
+    'c3bbc161-ba2a-4be4-baa7-deb4fed8199e')
+returning *
+) as t1
+;
+

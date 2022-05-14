@@ -1,28 +1,54 @@
 import query from './sql.js'
 import db from '#pg'
 
-async function checkPermission({staff_id, permission_modules_id, permission_id}) {
-    const [staff] = await db( query.CHECK_PERMISSION, staff_id, permission_modules_id, permission_id)
+
+async function getCars() {
+    return await db(query.GET_CARS)
+}
+
+async function getCar({car_id}) {
+    const [car] = await db(query.GET_CAR, car_id)
+    return car
+}
+
+async function checkPermission({staff_id, branch_id, permission_modules_id, permission_id}) {
+    const [staff] = await db( query.CHECK_PERMISSION, staff_id, branch_id, permission_modules_id, permission_id)
     return staff
 }
 
-async function insertBranch({ branch_name, address }) {
-    const [branche] = await db( query.INSERT_BRANCH, branch_name, address )
-    return branche
+async function getBrand(brand_id) {
+    const [brand] = await db(query.GET_BRAND, brand_id)
+    return brand
 }
 
-async function changeBranch({ branch_id, branch_name, address }) {
-    const [changedBranch] = await db(query.CHANGE_BRANCH, branch_id, branch_name, address)
-    return changedBranch
-}
-
-async function getBranch({ branch_id }) {
-    const [branch] = await db( query.GET_BRANCH, branch_id )
+async function getBranch(branch_id) {
+    const [branch] = await db(query.GET_BRANCH, branch_id)
     return branch
 }
 
-async function deleteBranch({ branch_id }) {
-    const [deletedbranch] = await db( query.DELETE_BRANCH, branch_id )
+async function checkCarModel(model, branch) {
+    const [carModel] = await db(query.GET_CAR_MODEL, model, branch)
+    return carModel
+}
+
+// insert car to db
+async function insertCar({ brand_id, branch_id, model: car_model, color: car_color, car_img, price }) {
+    const [newCar] = await db( query.INSERT_CAR, car_model, car_color, car_img, price,  brand_id, branch_id)
+    return newCar
+}
+
+
+async function changeCar({ car_id, color, model, price }) {
+    console.log(car_id);
+    const [changedCar] = await db(query.CHANGE_CAR, car_id, color, model, price)
+    return changedCar
+}
+
+
+
+
+async function deleteCar({ car_id }) {
+    const [deletedbranch] = await db( query.DELETE_CAR, car_id )
     return deletedbranch
 }
 
@@ -35,8 +61,17 @@ async function deleteBranch({ branch_id }) {
 
 export default {
     checkPermission,
-    changeBranch,
-    insertBranch,
-    deleteBranch,
-    getBranch
+    checkCarModel,
+    getBranch,
+    insertCar,
+    deleteCar,
+    changeCar,
+    getBrand,
+    getCars, 
+    getCar,
 }
+
+
+
+
+
