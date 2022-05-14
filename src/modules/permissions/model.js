@@ -31,6 +31,22 @@ async function getPermissions() {
     return permissions
 }
 
+
+// own permissions
+async function getOwnPermissions(staff_id) {
+    const permissions = await db( query.OWN_PWRMISSIONS, staff_id)
+
+    return permissions
+}
+
+
+async function getStaff(staff_id) {
+    const [staff] = await db( query.GET_STAFF, staff_id)
+    return staff
+}
+
+
+
 async function getPermissionsModules() {
     const permissionsModules = await db( query.GET_PERMISSIONS_MODULES)
     return permissionsModules
@@ -44,11 +60,13 @@ async function addedPermission({staff_id, branch_id, permission_modules_id, perm
 
 export default {
     getPermissionsModules,
+    getOwnPermissions,
     delete_permission,
     addedPermission,
     checkPermission,
     getPermissions,
     insertToBranch,
     checkBranch,
+    getStaff,
     allow
 }

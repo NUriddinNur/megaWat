@@ -124,22 +124,6 @@ where
 returning *
 `
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default {
     CHECK_PERMISSION,
     GET_CAR_MODEL, 

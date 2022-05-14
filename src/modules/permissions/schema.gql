@@ -1,7 +1,15 @@
 type Query {
     permissions: [Permission!]!
     permissionsModules: [PermissionModules!]!
+    ownPermissions: [Permissions!]!
 }
+
+type Permissions{
+    branch_name: String!
+    permission_modules_name: String!
+    permissions: [String]
+}
+
 
 
 type Mutation {

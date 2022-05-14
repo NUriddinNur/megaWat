@@ -124,6 +124,33 @@ where
 t3.permission_id = $4
 `
 
+
+const OWN_PWRMISSIONS = `
+select 
+    t1.branch_name,
+    t1.permission_modules_name,
+    t1.permissions
+from (
+select 
+    s.staff_name,
+    br.branch_name,
+    pr.permission_modules_name,
+    array_agg(per.permission_name) as permissions
+from 
+    staff_permissions as sp
+natural join staffs as s
+natural join branches as br
+natural join permission_modules as pr
+natural join permissions as per
+group by s.staff_name, br.branch_name, pr.permission_modules_name
+) as t1
+where t1.staff_name = $1
+`
+
+const GET_STAFF = `
+    select * from staffs where staff_id = $1 
+`
+
 export default {
     GET_PERMISSIONS_MODULES,
     GET_ALL_PERMISSIONS,
@@ -131,6 +158,8 @@ export default {
     ADDED_PERMISSION,
     CHECK_PERMISSION,
     INSERT_TO_BRANCH,
+    OWN_PWRMISSIONS,
     CHECH_BRANCH,
+    GET_STAFF,
     ALLOW
 }

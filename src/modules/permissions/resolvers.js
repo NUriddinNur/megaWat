@@ -13,6 +13,13 @@ export default {
             checkToken(headers.token, headers['user-agent'])
             return await model.getPermissionsModules()
         },
+
+        ownPermissions: async function(_, __, {headers}) {
+            const { staff_id } = checkToken(headers.token, headers['user-agent'])
+            const staff = await model.getStaff(staff_id)
+            return await model.getOwnPermissions(staff.staff_name)
+        }
+
     },
 
     Mutation: {
@@ -103,5 +110,11 @@ export default {
     PermissionModules: {
         permission_modules_id: global => global.permission_modules_id,
         permission_modules_name: global => global.permission_modules_name
+    },
+
+    Permissions: {
+        branch_name: global => global.branch_name,
+        permission_modules_name: global => global.permission_modules_name,
+        permissions: global => global.permissions
     }
 }   

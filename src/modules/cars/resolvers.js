@@ -126,6 +126,8 @@ export default {
             changedCar.branch = branch.branch_name
             changedCar.brand = brand.brand_name
 
+            console.log(changedCar);
+
             return {
                 status: 200,
                 message: 'Car changed!',

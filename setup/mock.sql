@@ -41,8 +41,8 @@ insert into cars(
     'white',
     'vesta.jpeg',
     12000,
-    'ff3c3347-9187-4f05-8539-97927a112f1a',
-    'c3bbc161-ba2a-4be4-baa7-deb4fed8199e'
+    '334afc8b-a528-43b9-846a-4a52d680db12',
+    'b8984f72-c741-4e73-9215-efced875e6d8'
 );
 
 insert into cars(
@@ -57,8 +57,8 @@ insert into cars(
     'black',
     'prado.jpeg',
     13000,
-    'a7ff799c-b449-4f38-b345-f52adfe8affd',
-    'c3bbc161-ba2a-4be4-baa7-deb4fed8199e'
+    'c16fdbd6-8443-4b24-afa4-4f84797b01fb',
+    'e3a11271-fcd2-4a89-b21e-75617074c174'
 );
 
 insert into cars(
@@ -73,8 +73,8 @@ insert into cars(
     'black',
     'prado.jpeg',
     35000,
-    'a7ff799c-b449-4f38-b345-f52adfe8affd',
-    '4c9a45cf-a4c8-41f6-8f27-42b1c136e976'
+    'c16fdbd6-8443-4b24-afa4-4f84797b01fb',
+    'e3a11271-fcd2-4a89-b21e-75617074c174'
 );
 
 
